@@ -16,8 +16,13 @@ export default createStore({
     getFilterByName(state) {
       return state.filterByName.name;
     },
-    getPlanets(state) {
-      return state.planets;
+    getAllPlanetsData(state) {
+      return state.data;
+    },
+    getByName(state) {
+      return state.planets.filter((e) =>
+        e.name.toLowerCase().includes(state.filterByName.name)
+      );
     },
   },
   mutations: {
@@ -45,13 +50,15 @@ export default createStore({
         .then((response) => {
           const { results } = response.data;
           context.commit("SET_LOADING");
-          console.log(results);
           context.commit("SET_DATA", results);
           context.commit("SET_PLANETS", results);
         })
         .catch((error) => {
           console.log(error);
         });
+    },
+    setPlanets(context, payload) {
+      context.commit("SET_PLANETS", payload);
     },
   },
   modules: {},

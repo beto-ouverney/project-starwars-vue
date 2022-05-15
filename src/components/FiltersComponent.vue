@@ -27,7 +27,7 @@ import InputNumber from "@/components/InputNumber";
 import FilterSelect from "@/components/FilterSelect";
 import BtnComponent from "@/components/BtnComponent";
 import TableComponent from "@/components/TableComponent";
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
   name: "FiltersComponent",
@@ -54,15 +54,27 @@ export default {
         "rotation_period",
         "surface_water",
       ],
+      planets: [],
     };
   },
   methods: {
-    ...mapActions(["fetchData"]),
+    ...mapActions(["fetchData", "setPlanets"]),
+    ...mapGetters(["getByName"]),
   },
   computed: {
-    ...mapGetters({
-      planets: "getPlanets",
+    ...mapState({
+      name: (state) => state.filterByName.name,
+      data: (state) => state.data,
     }),
+  },
+  watch: {
+    name() {
+      const newPlanets = this.getByName();
+      this.planets = newPlanets;
+    },
+    data() {
+      this.planets = this.data;
+    },
   },
   created() {
     this.fetchData();

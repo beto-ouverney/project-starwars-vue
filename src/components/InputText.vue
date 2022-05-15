@@ -16,10 +16,7 @@ export default {
   methods: {
     ...mapActions(["setName"]),
     handleChange: function (e) {
-      console.log("TES");
-      console.log(e.target.value);
       this.setName(e.target.value);
-      console.log(this.name);
     },
   },
 };
