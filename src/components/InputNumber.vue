@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+  name: "InputNumber",
   props: {
     label: String,
     handleChange: Function,

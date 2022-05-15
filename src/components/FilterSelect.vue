@@ -13,6 +13,7 @@
 
 <script>
 export default {
+  name: "FilterSelect",
   props: {
     label: String,
     array: Array,
