@@ -16,11 +16,11 @@ export default createStore({
     getFilterByName(state) {
       return state.filterByName.name;
     },
-    getAllPlanetsData(state) {
-      return state.data;
+    getPlanets(state) {
+      return state.planets;
     },
     getByName(state) {
-      return state.planets.filter((e) =>
+      return state.data.filter((e) =>
         e.name.toLowerCase().includes(state.filterByName.name)
       );
     },
@@ -37,6 +37,9 @@ export default createStore({
     },
     SET_PLANETS(state, payload) {
       state.planets = payload;
+    },
+    SET_ORDER(state, payload) {
+      state = { ...state, payload };
     },
   },
   actions: {
@@ -59,6 +62,9 @@ export default createStore({
     },
     setPlanets(context, payload) {
       context.commit("SET_PLANETS", payload);
+    },
+    setOrder(context, payload) {
+      context.commit("SET_ORDER", payload);
     },
   },
   modules: {},

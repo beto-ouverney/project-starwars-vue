@@ -13,20 +13,17 @@
     />
     <InputNumber />
     <BtnComponent :labelBtn="labelBtnFiltrar" />
+    <OrderTypeComponent />
     <BtnComponent :labelBtn="labelBtnOrdenar" />
     <BtnComponent :labelBtn="labelBtnRemover" />
   </div>
-  <div>
-    <TableComponent :array="planets" />
-  </div>
 </template>
-
 <script>
 import InputText from "@/components/InputText";
 import InputNumber from "@/components/InputNumber";
 import FilterSelect from "@/components/FilterSelect";
 import BtnComponent from "@/components/BtnComponent";
-import TableComponent from "@/components/TableComponent";
+import OrderTypeComponent from "@/components/OrderTypeComponent";
 import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
@@ -36,7 +33,7 @@ export default {
     InputNumber,
     FilterSelect,
     BtnComponent,
-    TableComponent,
+    OrderTypeComponent,
   },
   data() {
     return {
@@ -70,7 +67,7 @@ export default {
   watch: {
     name() {
       const newPlanets = this.getByName();
-      this.planets = newPlanets;
+      this.setPlanets(newPlanets);
     },
     data() {
       this.planets = this.data;
