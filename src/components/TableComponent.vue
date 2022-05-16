@@ -54,8 +54,5 @@ export default {
       array: "getPlanets",
     }),
   },
-  created() {
-    console.log(this.array);
-  },
 };
 </script>

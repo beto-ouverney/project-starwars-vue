@@ -20,8 +20,5 @@ export default {
     selected: String,
     handleChange: Function,
   },
-  created() {
-    console.log(this.label);
-  },
 };
 </script>

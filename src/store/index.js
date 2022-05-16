@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import axios from "axios";
+import * as filtersOrders from "@/utils/Filters";
 export default createStore({
   state: {
     data: [],
@@ -20,9 +21,10 @@ export default createStore({
       return state.planets;
     },
     getByName(state) {
-      return state.data.filter((e) =>
-        e.name.toLowerCase().includes(state.filterByName.name)
-      );
+      return filtersOrders.filterByName(state.data, state.filterByName.name);
+    },
+    getByOrder(state) {
+      return filtersOrders.order(state.order, state.planets);
     },
   },
   mutations: {

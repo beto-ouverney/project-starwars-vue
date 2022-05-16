@@ -22,25 +22,31 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 export default {
+  name: "OrderTypeComponent",
   data() {
     return {
       label: "Order: ",
       valAsc: "ASC",
     };
   },
+  methods: {
+    ...mapGetters(["getByOrder"]),
+    ...mapActions(["setOrder", "setPlanets"]),
+    handleChange(e) {
+      console.log("TEST");
+      this.order.sort = e.target.value;
+      console.log(this.order);
+      this.setOrder(this.order);
+      const newPlanets = this.getByOrder();
+      this.setPlanets(newPlanets);
+    },
+  },
   computed: {
     ...mapState({
       order: (state) => state.order,
     }),
-  },
-  methods: {
-    ...mapActions(["setOrder"]),
-    handleChange(e) {
-      this.order.sort = e.target.value;
-      this.setOrder(this.order);
-    },
   },
 };
 </script>
