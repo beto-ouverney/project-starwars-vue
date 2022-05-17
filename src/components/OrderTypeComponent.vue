@@ -35,9 +35,7 @@ export default {
     ...mapGetters(["getByOrder"]),
     ...mapActions(["setOrder", "setPlanets"]),
     handleChange(e) {
-      console.log("TEST");
       this.order.sort = e.target.value;
-      console.log(this.order);
       this.setOrder(this.order);
       const newPlanets = this.getByOrder();
       this.setPlanets(newPlanets);

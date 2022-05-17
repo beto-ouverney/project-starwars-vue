@@ -2,28 +2,34 @@
   <div>
     <InputText />
     <FilterSelect
-      :selected="filterTypes[0]"
       :array="filterTypes"
       :label="labelFilterTypes"
+      @update="column = $event"
     />
     <FilterSelect
-      :selected="comparisonOptions[0]"
       :array="comparisonOptions"
       :label="labelParam"
+      @update="comparasion = $event"
     />
-    <InputNumber />
-    <BtnComponent :labelBtn="labelBtnFiltrar" />
+    <InputNumber @updateValue="value = $event" />
+    <BtnComponent :labelBtn="labelBtnFiltrar" @clickBtn="clickFilter()" />
     <OrderTypeComponent />
-    <BtnComponent :labelBtn="labelBtnOrdenar" />
     <BtnComponent :labelBtn="labelBtnRemover" />
+    <div>
+      <FilterSelected
+        :array="filterByNumericValues"
+        @remover="removeFilter($event)"
+      />
+    </div>
   </div>
 </template>
 <script>
-import InputText from "@/components/InputText";
-import InputNumber from "@/components/InputNumber";
-import FilterSelect from "@/components/FilterSelect";
-import BtnComponent from "@/components/BtnComponent";
-import OrderTypeComponent from "@/components/OrderTypeComponent";
+import InputText from "./InputText";
+import InputNumber from "./InputNumber";
+import FilterSelect from "./FilterSelect";
+import FilterSelected from "./FilterSelected";
+import BtnComponent from "./BtnComponent";
+import OrderTypeComponent from "./OrderTypeComponent";
 import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
@@ -34,12 +40,12 @@ export default {
     FilterSelect,
     BtnComponent,
     OrderTypeComponent,
+    FilterSelected,
   },
   data() {
     return {
-      labelBtnRemover: "Remover",
-      labelBtnOrdenar: "Ordenar",
-      labelBtnFiltrar: "Filtrar",
+      labelBtnRemover: "Remove All",
+      labelBtnFiltrar: "Filter",
       labelNumberParam: "Number Parameter: ",
       labelParam: "Parameter: ",
       comparisonOptions: ["maior que", "menor que", "igual a"],
@@ -51,18 +57,53 @@ export default {
         "rotation_period",
         "surface_water",
       ],
+      orderypes: [
+        "population",
+        "orbital_period",
+        "diameter",
+        "rotation_period",
+        "surface_water",
+      ],
+      column: "population",
+      comparasion: "maior que",
+      value: 0,
       planets: [],
     };
-  },
-  methods: {
-    ...mapActions(["fetchData", "setPlanets"]),
-    ...mapGetters(["getByName"]),
   },
   computed: {
     ...mapState({
       name: (state) => state.filterByName.name,
       data: (state) => state.data,
+      filterByNumericValues: (state) => state.filterByNumericValues,
     }),
+  },
+  methods: {
+    ...mapActions(["fetchData", "setPlanets", "setFilters"]),
+    ...mapGetters(["getByName", "getByNumericValues"]),
+    clickFilter() {
+      const compare = {
+        column: this.column,
+        comparasion: this.comparasion,
+        value: this.value,
+      };
+      const newfilterTypes = this.filterTypes.filter(
+        (el) => el !== this.column
+      );
+      this.filterTypes = newfilterTypes;
+      this.setFilters([...this.filterByNumericValues, compare]);
+    },
+    removeAll() {
+      this.filterTypes = this.orderTypes;
+      this.setFilters([]);
+    },
+    removeFilter(index) {
+      const deletedFilter = this.filterByNumericValues[index];
+      const newFilter = this.filterByNumericValues.filter(
+        (e) => e.column !== deletedFilter.column
+      );
+      this.setFilters(newFilter);
+      this.filterTypes = [...this.filterTypes, deletedFilter.column];
+    },
   },
   watch: {
     name() {
@@ -71,6 +112,16 @@ export default {
     },
     data() {
       this.planets = this.data;
+    },
+    filterTypes() {
+      this.column = this.filterTypes[0];
+    },
+    filterByNumericValues() {
+      if (!this.filterByNumericValues[0]) {
+        this.setPlanets(this.data);
+      } else {
+        this.setPlanets(this.getByNumericValues());
+      }
     },
   },
   created() {

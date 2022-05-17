@@ -14,3 +14,21 @@ export const order = (order, array) => {
     return naturalSort(array).desc((e) => Number(e[order.column]) || 0);
   }
 };
+
+const filterCompare = (item, col, param, val) => {
+  switch (param) {
+    case "menor que":
+      return Number(item[col]) < Number(val);
+    case "maior que":
+      return Number(item[col]) > Number(val);
+    default:
+      return Number(item[col]) === Number(val);
+  }
+};
+
+export const filterComparasion = (arrayParam) =>
+  arrayParam.planets.filter((item) =>
+    arrayParam.filterByNumericValues.every((e) =>
+      filterCompare(item, e.column, e.comparasion, e.value)
+    )
+  );

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="button" @click="handleClick">
+    <button type="button" @click="$emit('clickBtn')">
       {{ labelBtn }}
     </button>
   </div>
@@ -11,7 +11,6 @@ export default {
   name: "BtnComponent",
   props: {
     labelBtn: String,
-    handleClick: Function,
   },
 };
 </script>

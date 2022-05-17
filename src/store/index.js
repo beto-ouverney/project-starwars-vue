@@ -26,6 +26,9 @@ export default createStore({
     getByOrder(state) {
       return filtersOrders.order(state.order, state.planets);
     },
+    getByNumericValues(state) {
+      return filtersOrders.filterComparasion(state);
+    },
   },
   mutations: {
     SET_NAME(state, payload) {
@@ -41,7 +44,10 @@ export default createStore({
       state.planets = payload;
     },
     SET_ORDER(state, payload) {
-      state = { ...state, payload };
+      state.order = payload;
+    },
+    SET_FILTERS(state, payload) {
+      state.filterByNumericValues = payload;
     },
   },
   actions: {
@@ -64,6 +70,9 @@ export default createStore({
     },
     setPlanets(context, payload) {
       context.commit("SET_PLANETS", payload);
+    },
+    setFilters(context, payload) {
+      context.commit("SET_FILTERS", payload);
     },
     setOrder(context, payload) {
       context.commit("SET_ORDER", payload);
