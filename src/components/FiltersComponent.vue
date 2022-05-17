@@ -14,6 +14,7 @@
     <InputNumber @updateValue="value = $event" />
     <BtnComponent :labelBtn="labelBtnFiltrar" @clickBtn="clickFilter()" />
     <OrderTypeComponent />
+    <OrderSelect :array="orderTypes" :label="labelParam" />
     <BtnComponent :labelBtn="labelBtnRemove" @click="removeAll()" />
     <div>
       <FilterSelected
@@ -30,6 +31,7 @@ import FilterSelect from "./FilterSelect";
 import FilterSelected from "./FilterSelected";
 import BtnComponent from "./BtnComponent";
 import OrderTypeComponent from "./OrderTypeComponent";
+import OrderSelect from "./OrderSelect";
 import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
@@ -41,6 +43,7 @@ export default {
     BtnComponent,
     OrderTypeComponent,
     FilterSelected,
+    OrderSelect,
   },
   data() {
     return {
@@ -57,7 +60,7 @@ export default {
         "rotation_period",
         "surface_water",
       ],
-      orderypes: [
+      orderTypes: [
         "population",
         "orbital_period",
         "diameter",
