@@ -14,7 +14,7 @@
     <InputNumber @updateValue="value = $event" />
     <BtnComponent :labelBtn="labelBtnFiltrar" @clickBtn="clickFilter()" />
     <OrderTypeComponent />
-    <BtnComponent :labelBtn="labelBtnRemover" />
+    <BtnComponent :labelBtn="labelBtnRemove" @click="removeAll()" />
     <div>
       <FilterSelected
         :array="filterByNumericValues"
@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      labelBtnRemover: "Remove All",
+      labelBtnRemove: "Remove All",
       labelBtnFiltrar: "Filter",
       labelNumberParam: "Number Parameter: ",
       labelParam: "Parameter: ",
