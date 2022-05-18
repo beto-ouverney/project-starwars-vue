@@ -1,6 +1,9 @@
 <template>
   <div>
-    <input :value="name" @input="handleChange" />
+    <label
+      >{{ label }}
+      <input :value="name" @input="handleChange" />
+    </label>
   </div>
 </template>
 
@@ -8,6 +11,9 @@
 import { mapState, mapActions } from "vuex";
 export default {
   name: "InputText",
+  props: {
+    label: String,
+  },
   computed: {
     ...mapState({
       name: (state) => state.filterByName.name,

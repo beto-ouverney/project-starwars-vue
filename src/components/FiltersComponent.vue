@@ -1,22 +1,33 @@
+<style lang="scss" scopped>
+@import "./styles/FiltersComponent";
+</style>
 <template>
   <div>
-    <InputText />
-    <FilterSelect
-      :array="filterTypes"
-      :label="labelFilterTypes"
-      @update="column = $event"
-    />
-    <FilterSelect
-      :array="comparisonOptions"
-      :label="labelParam"
-      @update="comparasion = $event"
-    />
-    <InputNumber @updateValue="value = $event" />
-    <BtnComponent :labelBtn="labelBtnFiltrar" @clickBtn="clickFilter()" />
-    <OrderTypeComponent />
-    <OrderSelect :array="orderTypes" :label="labelParam" />
-    <BtnComponent :labelBtn="labelBtnRemove" @click="removeAll()" />
-    <div>
+    <div class="filters-orders">
+      <div class="filter">
+        <InputText :label="labelInputText" />
+        <FilterSelect
+          :array="filterTypes"
+          :label="labelFilterTypes"
+          @update="column = $event"
+        />
+        <FilterSelect
+          :array="comparisonOptions"
+          :label="labelParam"
+          @update="comparasion = $event"
+        />
+        <InputNumber @updateValue="value = $event" :label="labelNumberParam" />
+        <BtnComponent :labelBtn="labelBtnFiltrar" @clickBtn="clickFilter()" />
+      </div>
+      <div class="order">
+        <OrderTypeComponent />
+        <OrderSelect :array="orderTypes" :label="labelParam" />
+      </div>
+      <div class="remove">
+        <BtnComponent :labelBtn="labelBtnRemove" @click="removeAll()" />
+      </div>
+    </div>
+    <div class="selected">
       <FilterSelected
         :array="filterByNumericValues"
         @remover="removeFilter($event)"
@@ -33,7 +44,6 @@ import BtnComponent from "./BtnComponent";
 import OrderTypeComponent from "./OrderTypeComponent";
 import OrderSelect from "./OrderSelect";
 import { mapActions, mapState, mapGetters } from "vuex";
-
 export default {
   name: "FiltersComponent",
   components: {
@@ -47,12 +57,13 @@ export default {
   },
   data() {
     return {
+      labelInputText: "Name:",
       labelBtnRemove: "Remove All",
       labelBtnFiltrar: "Filter",
-      labelNumberParam: "Number Parameter: ",
-      labelParam: "Parameter: ",
+      labelNumberParam: "Number Parameter:",
+      labelParam: "Parameter:",
       comparisonOptions: ["maior que", "menor que", "igual a"],
-      labelFilterTypes: "Filter: ",
+      labelFilterTypes: "Filter:",
       filterTypes: [
         "population",
         "orbital_period",
