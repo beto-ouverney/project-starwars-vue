@@ -1,5 +1,7 @@
 # project-starwars-vue
 
+[Link](https://project-starwars-vue.vercel.app/)
+
 # Skills used in this project:
 
 * State Control with Vuex.js
@@ -23,6 +25,8 @@
 * Internacionalização com i18n
 * Chamadas in API
 * SCSS
+
+
 
 ---
 
