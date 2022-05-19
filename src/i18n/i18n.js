@@ -76,7 +76,6 @@ const messages = {
     ["Skills used in this project"]: "Habilidades usadas neste projeto:",
     ["Styling with SCSS"]: "SCSS",
     ["Terrain"]: "terreno",
-    ["URL"]: "URL",
   },
   es: {
     ["About"]: "Sobre",
@@ -115,7 +114,6 @@ const messages = {
     ["State Control with Vuex.js"]: "Control de estado con Vuex.js",
     ["Styling with SCSS"]: "SCSS",
     ["Terrain"]: "terrano",
-    ["URL"]: "URL",
   },
 };
 const i18n = createI18n({
