@@ -18,7 +18,6 @@
         <td>{{ item.population }}</td>
         <td>{{ item.created }}</td>
         <td>{{ item.edited }}</td>
-        <td>{{ item.url }}</td>
       </tr>
     </tbody>
   </table>
@@ -42,7 +41,6 @@ export default {
         "Population",
         "Created",
         "Edited",
-        "URL",
       ],
     };
   },
