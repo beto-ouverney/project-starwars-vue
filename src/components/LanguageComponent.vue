@@ -25,9 +25,14 @@ export default {
   },
   methods: {
     changeLocation(locale) {
-      console.log(locale);
       this.$root.$i18n.locale = this.languages[locale];
     },
+    getKeyByValue(object, value) {
+      return Object.keys(object).find((key) => object[key] === value);
+    },
+  },
+  created() {
+    this.value = this.getKeyByValue(this.languages, this.$root.$i18n.locale);
   },
 };
 </script>
