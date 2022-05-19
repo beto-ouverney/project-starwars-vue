@@ -17,7 +17,9 @@
       <a href="https://www.linkedin.com/in/beto-ouverney-paz/">
         <img src="@/assets/linkedin_logo.png" />{{ $t(myLinkedin) }}</a
       >
-      <a href=""><img src="@/assets/github.svg" />GitHub</a>
+      <a href="https://github.com/beto-ouverney"
+        ><img src="@/assets/github.svg" />GitHub</a
+      >
     </div>
   </div>
 </template>

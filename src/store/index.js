@@ -65,6 +65,7 @@ export default createStore({
           context.commit("SET_PLANETS", results);
         })
         .catch((error) => {
+          context.commit("SET_LOADING");
           console.log(error);
         });
     },
