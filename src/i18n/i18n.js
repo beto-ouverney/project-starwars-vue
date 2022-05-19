@@ -21,6 +21,7 @@ const messages = {
     ["Order:"]: "Order:",
     ["Parameter:"]: "Parameter:",
     ["population"]: "population",
+    ["Population"]: "population",
     ["rotation_period"]: "rotation period",
     ["Remove All"]: "Remove All",
     ["Rotation Period"]: "Rotation Period",
