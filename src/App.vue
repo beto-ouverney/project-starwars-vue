@@ -21,6 +21,7 @@ export default {
 * {
   background-color: black;
   color: white;
+  font-family: "Poppins";
 }
 nav {
   display: flex;
