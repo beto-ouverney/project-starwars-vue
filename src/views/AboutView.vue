@@ -1,5 +1,16 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <SkillsComponent />
   </div>
 </template>
+<script>
+import SkillsComponent from "@/components/SkillsComponent";
+export default {
+  components: {
+    SkillsComponent,
+  },
+  data() {
+    return { myLinkedin: "My linkedin, connect to me!" };
+  },
+};
+</script>

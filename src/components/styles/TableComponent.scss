@@ -1,0 +1,41 @@
+$yellow: #fab700;
+$white: #fff;
+$blue: rgb(57, 81, 243);
+$border: 1px solid $white;
+$padding: 10px;
+
+.table-planets {
+  border-collapse: collapse;
+
+  thead {
+    th {
+      border: $border;
+      color: $yellow;
+      padding: $padding;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: grey;
+      }
+
+      &:hover {
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+
+    td {
+      border: $border;
+      padding: $padding;
+      text-align: left;
+    }
+
+  }
+
+}
