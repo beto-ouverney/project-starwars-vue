@@ -13,6 +13,7 @@ $white: white;
 }
 
 .filter {
+  align-items: center;
   border: 2px solid $yellow;
   border-radius: 10px;
   display: flex;
@@ -77,9 +78,10 @@ $white: white;
 }
 
 .order {
-  margin: 10px;
+  align-items: center;
   border: 3px solid $blue;
   border-radius: 10px;
+  margin: 10px;
   padding: $padding;
 
   button {
