@@ -8,9 +8,5 @@ export default {
   props: {
     show: Boolean,
   },
-  created() {
-    console.log(this.show);
-    console.log("LOAADINIDD");
-  },
 };
 </script>
