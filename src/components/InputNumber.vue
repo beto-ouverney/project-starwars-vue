@@ -1,7 +1,7 @@
 <template>
   <div>
     <label
-      >{{ label }}
+      >{{ $t(label) }}
       <input type="number" v-model="value" @input="handleChange" />
     </label>
   </div>

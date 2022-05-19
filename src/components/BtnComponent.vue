@@ -1,7 +1,7 @@
 <template>
   <div>
     <button type="button" @click="$emit('clickBtn')">
-      {{ labelBtn }}
+      {{ $t(labelBtn) }}
     </button>
   </div>
 </template>

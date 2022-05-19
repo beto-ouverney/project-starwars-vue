@@ -2,7 +2,7 @@
   <table class="table-planets">
     <thead>
       <tr>
-        <th v-for="tHead in tHeads" :key="tHead">{{ tHead }}</th>
+        <th v-for="tHead in tHeads" :key="tHead">{{ $t(tHead) }}</th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +16,6 @@
         <td>{{ item.terrain }}</td>
         <td>{{ item.surface_water }}</td>
         <td>{{ item.population }}</td>
-        <td>{{ item.films }}</td>
         <td>{{ item.created }}</td>
         <td>{{ item.edited }}</td>
         <td>{{ item.url }}</td>
@@ -41,7 +40,6 @@ export default {
         "Terrain",
         "Surface Water",
         "Population",
-        "Films",
         "Created",
         "Edited",
         "URL",

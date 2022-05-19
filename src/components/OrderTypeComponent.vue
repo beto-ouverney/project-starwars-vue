@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      Order:
+      {{ $t(label) }}
       <label>
         <input
           type="radio"
@@ -27,7 +27,7 @@ export default {
   name: "OrderTypeComponent",
   data() {
     return {
-      label: "Order: ",
+      label: "Order:",
       valAsc: "ASC",
     };
   },

@@ -1,7 +1,7 @@
 <template>
   <div>
     <label
-      >{{ label }}
+      >{{ $t(label) }}
       <input :value="name" @input="handleChange" />
     </label>
   </div>

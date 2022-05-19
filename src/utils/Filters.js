@@ -17,9 +17,9 @@ export const order = (order, array) => {
 
 const filterCompare = (item, col, param, val) => {
   switch (param) {
-    case "menor que":
+    case "lesser than":
       return Number(item[col]) < Number(val);
-    case "maior que":
+    case "bigger than":
       return Number(item[col]) > Number(val);
     default:
       return Number(item[col]) === Number(val);

@@ -60,9 +60,9 @@ export default {
       labelInputText: "Name:",
       labelBtnRemove: "Remove All",
       labelBtnFiltrar: "Filter",
-      labelNumberParam: "Number Parameter:",
+      labelNumberParam: "Number:",
       labelParam: "Parameter:",
-      comparisonOptions: ["maior que", "menor que", "igual a"],
+      comparisonOptions: ["bigger than", "lesser than", "equal to"],
       labelFilterTypes: "Filter:",
       filterTypes: [
         "population",
@@ -79,7 +79,7 @@ export default {
         "surface_water",
       ],
       column: "population",
-      comparasion: "maior que",
+      comparasion: "bigger than",
       value: 0,
       planets: [],
     };

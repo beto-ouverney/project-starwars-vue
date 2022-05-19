@@ -1,10 +1,10 @@
 <template>
   <div>
     <label
-      >{{ label }}
+      >{{ $t(label) }}
       <select v-model="value" @change="handleChange">
         <option v-for="item in array" :value="item" :key="item">
-          {{ item }}
+          {{ $t(item) }}
         </option>
       </select>
     </label>

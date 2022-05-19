@@ -1,0 +1,24 @@
+.filter-selected {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item-filter-selected {
+  border: 1px solid white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+
+  p {
+    margin-left: 10px;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    margin: 10px;
+    width: 5px;
+  }
+}
