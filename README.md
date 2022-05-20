@@ -1,6 +1,8 @@
-# project-starwars-vue
+# Project Star Wars Vue.js
 
 [Link](https://project-starwars-vue.vercel.app/)
+
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=beto-ouverney)](https://github.com/anuraghazra/github-readme-stats)
 
 # Skills used in this project:
 
