@@ -2,8 +2,6 @@
 
 [Link](https://project-starwars-vue.vercel.app/)
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=beto-ouverney&layout=compact)](https://github.com/beto-ouverney/project-starwars-vue)
-
 # Skills used in this project:
 
 * State Control with Vuex.js
