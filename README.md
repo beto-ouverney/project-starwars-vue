@@ -26,7 +26,7 @@
 * Chamadas in API
 * SCSS
 
-# ABOUT
+# ABOUT ME
 
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=beto-ouverney)](https://github.com/beto-ouverney)
 
